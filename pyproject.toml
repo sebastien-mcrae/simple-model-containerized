@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "rad-ai"
+version = "1.0.0"
+description = ""
+authors = ["Sebastien McRae <mcrae.sebastien@gmail.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.scripts]
+api = "scripts:start_api"
+format = "scripts:format"
+lint = "scripts:lint"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.103.1"
+starlette = "^0.27.0"
+torch = {url = "https://download.pytorch.org/whl/cpu/torch-2.0.1%2Bcpu-cp311-cp311-linux_x86_64.whl"}
+transformers = "^4.32.1"
+uvicorn = "^0.23.2"
+sentencepiece = "^0.1.99"
+pydantic = "^2.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.287"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select = ["E", "F", "C90"]
+line-length = 88
+target-version = "py311"
